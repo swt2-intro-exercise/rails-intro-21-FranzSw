@@ -22,5 +22,13 @@ describe "New author page", type: :feature do
     it "should have a text input for author's home page" do
       expect(page).to have_field("author[homepage]")
     end
+
+    it "should save new author" do
+      visit new_author_path
+      page.fill_in 'author[first_name]', with: 'Edsger'
+      page.fill_in 'author[last_name]', with: 'Dijkstra'
+      page.fill_in 'author[homepage]', with: 'https://en.wikipedia.org/wiki/Edsger_W._Dijkstra'
+      find('input[type="submit"]').click
+    end
   end
 end
