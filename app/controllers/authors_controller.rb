@@ -4,6 +4,7 @@ class AuthorsController < ApplicationController
   end
 
   def new
+    @author = Author.create
   end
 
   def show
@@ -12,9 +13,12 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
-    @author.save
-
-    redirect_to root_path, notice: "Author #{@author.name} saved!"
+    
+    if @author.save
+      redirect_to root_path, notice: "Author #{@author.name} saved!"
+    else
+      render 'new'
+    end
   end
   
   private
