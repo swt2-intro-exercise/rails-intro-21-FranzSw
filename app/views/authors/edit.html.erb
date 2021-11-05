@@ -1,0 +1,29 @@
+<h1>Edit author</h1>
+<%= form_with(model: @author, local: true) do |f| %>
+
+<% if @author.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@author.errors.count, "error") %> prohibited
+      this author from being saved:
+    </h2>
+    <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= f.label :first_name %>
+<%= f.text_field :first_name %>
+
+<%= f.label :last_name %>
+<%= f.text_field :last_name %>
+
+<%= f.label :homepage %>
+<%= f.text_field :homepage %>
+
+<%= f.submit "Sign Up" %>
+
+<% end %>
