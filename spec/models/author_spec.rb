@@ -12,4 +12,14 @@ RSpec.describe Author, type: :model do
     author = build :author
     expect(author.name).to eq("Alan Turing")
   end
+
+  it "should validate first and last name" do
+    author = build :author
+    author.last_name = nil
+    expect(author).to_not be_valid
+
+    author = build :author
+    author.first_name = nil
+    expect(author).to_not be_valid
+  end
 end
