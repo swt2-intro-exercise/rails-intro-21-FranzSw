@@ -7,5 +7,6 @@ describe "Index authors page", type: :feature do
     expect(page).to have_table
     expect(page).to have_text(alan.name)
     expect(page).to have_text(alan.homepage)
+    expect(page).to have_link nil, href: author_path(alan)
   end
 end
