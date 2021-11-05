@@ -1,1 +1,18 @@
-<h1>Authors Index</h1>
+<h1>Authors</h1>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Homepage</th>
+  </tr>
+  <% @authors.each do |author| %>
+  <tr>
+    <td><%= author.first_name %></td>
+    <td><%= author.last_name %></td>
+    <td><%= author.homepage %></td>
+  </tr>
+  <% end %>
+  <tr>
+</table>
+
+<%= link_to 'New', new_author_path %>
