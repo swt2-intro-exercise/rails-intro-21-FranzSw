@@ -1,6 +1,6 @@
+require 'rails_helper'
 
-
-describe "Authors model", type: :model do
+RSpec.describe Author, type: :model do
   it "should have first name, last name and homepage" do
     author = build :author
     expect(author.first_name).to eq("Alan")
