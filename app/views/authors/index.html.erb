@@ -11,7 +11,7 @@
     <td><%= author.first_name %></td>
     <td><%= author.last_name %></td>
     <td><%= author.homepage %></td>
-    <td><%= link_to 'Show', author_path(author) %>, <%= link_to 'Edit', edit_author_path(author) %></td>
+    <td><%= link_to 'Show', author_path(author) %>, <%= link_to 'Edit', edit_author_path(author) %>, <%= link_to 'Delete', author_path(author), method: :delete %></td>
   </tr>
   <% end %>
   <tr>
