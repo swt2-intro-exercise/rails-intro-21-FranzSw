@@ -4,14 +4,14 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Homepage</th>
-    <th>Link</th>
+    <th>Links</th>
   </tr>
   <% @authors.each do |author| %>
   <tr>
     <td><%= author.first_name %></td>
     <td><%= author.last_name %></td>
     <td><%= author.homepage %></td>
-    <td><td><%= link_to 'Show', author_path(author) %></td></td>
+    <td><%= link_to 'Show', author_path(author) %>, <%= link_to 'Edit', edit_author_path(author) %></td>
   </tr>
   <% end %>
   <tr>
