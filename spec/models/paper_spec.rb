@@ -25,4 +25,9 @@ RSpec.describe Paper, type: :model do
     paper = build :paper
     expect(paper).to be_valid
   end
+
+  it "should have authors list" do
+    paper = build :paper
+    expect(paper.authors).not_to be_empty
+  end
 end
