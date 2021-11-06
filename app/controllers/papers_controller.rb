@@ -3,7 +3,7 @@ class PapersController < ApplicationController
 
   # GET /papers
   def index
-    @papers = Paper.all
+    @papers = Paper.published_in(query_params[:year])
   end
 
   # GET /papers/1
@@ -54,5 +54,9 @@ class PapersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def paper_params
       params.require(:paper).permit(:title, :venue, :year, :author_ids => [])
+    end
+
+    def query_params
+      params.permit(:year)
     end
 end
