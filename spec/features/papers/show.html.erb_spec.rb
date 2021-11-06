@@ -1,18 +1,22 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "papers/show", type: :view do
-  before(:each) do
-    @paper = assign(:paper, Paper.create!(
-      title: "Title",
-      venue: "Venue",
-      year: 2
-    ))
+describe "papers/show", type: :feature do
+  it "renders attributes in <p>" do
+    @paper = create :paper
+    visit paper_path(@paper)
+    expect(page).to have_text(@paper.title)
+    expect(page).to have_text(@paper.venue)
+    expect(page).to have_text(@paper.year)
   end
 
-  it "renders attributes in <p>" do
-    render
-    expect(rendered).to match(/Title/)
-    expect(rendered).to match(/Venue/)
-    expect(rendered).to match(/2/)
+  it "renders authors full name" do
+    @author = create :author
+    @paper = create :paper
+    # expect(@author).to eq(1)
+    @paper.authors << @author
+    @paper.save
+
+    visit paper_path(@paper)
+    expect(page).to have_text(@author.name)
   end
 end
